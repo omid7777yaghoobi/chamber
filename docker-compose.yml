@@ -1,0 +1,14 @@
+services:
+  database:
+    image: postgres:15.5-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_db_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=objsto
+      - POSTGRES_USER=db-user
+      - POSTGRES_PASSWORD=db-pass
+
+volumes:
+  postgres_db_vol:

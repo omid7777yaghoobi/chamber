@@ -1,0 +1,6 @@
+CREATE TABLE buckets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL,
+    owner VARCHAR(100) NOT NULL
+);
