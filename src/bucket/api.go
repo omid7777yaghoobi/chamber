@@ -7,7 +7,7 @@ import (
 type bucketAPI struct {
 }
 
-func NewBucketApi() http.Handler {
+func NewBucketApiHandler() http.Handler {
 	ListBuckets := NewListBuckets()
 	mux := http.NewServeMux()
 	mux.Handle("/buckets", ListBuckets)
