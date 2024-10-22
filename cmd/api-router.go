@@ -1,11 +1,28 @@
-package cmd
+package main
 
 import (
 	"github.com/gorilla/mux"
 )
 
-func RegisterApiHandler(router *mux.Router) {
-	apiRouter := router.NewRoute().PathPrefix("/api/v4").Subrouter()
+const (
+	apiVersion      = "v1"
+	apiPrefix       = "/api/" + apiVersion
+	bucketApiPrefix = apiPrefix + "/buckets"
+	objectApiPrefix = apiPrefix + "/objects"
+)
 
-	apiRouter.Handle("/bucket", bucketHandler)
+func RegisterApiHandler(router *mux.Router) {
+	apiRouter := router.NewRoute().PathPrefix(apiPrefix).Subrouter()
+
+	registerBucketApiHandler(apiRouter)
+	registerObjectApiRouter(apiRouter)
+}
+
+func registerBucketApiHandler(router *mux.Router) {
+	bucketApiRouter := router.NewRoute().PathPrefix(bucketApiPrefix).Subrouter()
+
+}
+
+func registerObjectApiRouter(router *mux.Router) {
+	objectApiRouter := router.NewRoute().PathPrefix(objectApiPrefix).Subrouter()
 }
