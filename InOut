@@ -1,0 +1,36 @@
+# Here we are trying to design the input and output of the application for different requests. Just to know the path we are heading to.
+
+
+Response general format:
+
+{
+    messageAttributes: {
+        correlationId: 
+    },
+    messageBody: {
+        Buckets: [
+            {
+                id: 
+                name:
+                creation_date:
+                owner:
+            }
+        ]
+    }
+}
+
+
+
+
+List buckets 
+
+{
+    messageBody: {
+        Buckets: [
+            id:
+            name:
+            creation_date:
+            owner:
+        ]
+    }
+}
