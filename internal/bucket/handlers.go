@@ -23,7 +23,8 @@ func ListBucketsHandler() http.HandlerFunc {
 
 		serializedResponse, err := res.Serialize()
 		if err != nil {
-			w.Write("fucked up")
+			w.WriteHeader(api.ChamberInternalServerError().Method)
+			w.Write(api.ChamberInternalServerError().Body)
 		}
 		w.Write(serializedResponse)
 	}
